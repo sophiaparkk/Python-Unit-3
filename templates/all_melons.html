@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h1>Melon Inventory</h1>
+
+    <div id="melon-list">
+        {% for melon in melon_list %}
+        <div class="card text-center">
+            <img class='melon-image' src="{{ melon.image_url }}">
+            <h5>
+                <a href="{{ url_for('melon_details', melon_id=melon.melon_id) }}">
+                {{ melon.common_name }}</a> 
+                <!-- what is difference between bracket notation and dot notation here? -->
+
+                {{ melon.price_str() }}
+            </h5>
+
+
+        </div> 
+        {% endfor %}
+    </div>
+{% endblock %}
